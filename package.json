@@ -1,0 +1,32 @@
+{
+  "name": "xorreo-street-food",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acanojiDev/XORREO-Street-Food.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/acanojiDev/XORREO-Street-Food/issues"
+  },
+  "homepage": "https://github.com/acanojiDev/XORREO-Street-Food#readme",
+  "dependencies": {
+    "@fontsource-variable/big-shoulders-display": "^5.3.0",
+    "@fontsource-variable/inter-tight": "^5.3.0",
+    "gsap": "^3.15.1",
+    "lenis": "^1.3.27"
+  },
+  "devDependencies": {
+    "vite": "^8.3.8"
+  },
+  "private": true
+}
