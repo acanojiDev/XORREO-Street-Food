@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xorreo Street Food · Burgers y street food en Estación de Cártama</title>
+  <meta name="description" content="Carta completa de Xorreo Street Food: burgers de pan negro, smash, pollo XFC, croquetas y street food en Av. de Andalucía 89, Estación de Cártama. Jueves a martes, de 20:00 a 00:00." />
+  <meta name="theme-color" content="#0A0A0A" />
+  <link rel="preload" as="image" href="img/burger-pan.webp" fetchpriority="high" />
+  <link rel="preload" as="image" href="img/burger-base.webp" />
+  <meta property="og:title" content="Xorreo Street Food · Si no chorrea, no es Xorreo" />
+  <meta property="og:description" content="Burgers de pan negro, smash y street food en Estación de Cártama. Mira la carta." />
+  <meta property="og:image" content="img/negra-smash.jpg" />
+  <meta property="og:locale" content="es_ES" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230A0A0A'/%3E%3Cpath d='M14 12l18 16 18-16 4 6-16 16 16 16-6 6-16-16-16 16-2-4 2-10-6-4 2-6 10 0z' fill='%23FF1E2D'/%3E%3C/svg%3E" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Xorreo Street Food",
+    "servesCuisine": ["Hamburguesas", "Street food"],
+    "priceRange": "€€",
+    "telephone": "+34952325152",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. de Andalucía, 89",
+      "postalCode": "29580",
+      "addressLocality": "Estación de Cártama",
+      "addressRegion": "Málaga",
+      "addressCountry": "ES"
+    },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Thursday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday"],
+      "opens": "20:00",
+      "closes": "00:00"
+    }],
+    "hasMenu": "https://menu.restawa.com/xorreo-street-food/",
+    "sameAs": ["https://www.instagram.com/xorreo_/", "https://www.tiktok.com/@xorreo_"]
+  }
+  </script>
+  <script>document.documentElement.classList.add('js')</script>
+  <script type="module" crossorigin src="./assets/index-B0qaBZG9.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CCyJwMVa.css">
+</head>
+<body>
+  <a class="skip" href="#main">Saltar al contenido</a>
+
+  <header class="nav" data-nav>
+    <a class="nav__brand" href="#top" aria-label="Xorreo Street Food, inicio" data-logo="sm"></a>
+    <nav class="nav__links" aria-label="Principal">
+      <a href="#carta">Carta</a>
+      <a href="#pedir">Pedir</a>
+      <a href="#local">El local</a>
+    </nav>
+    <a class="btn btn--red btn--sm nav__call" data-call>Llamar</a>
+  </header>
+
+  <main id="main">
+    <!-- HERO: la burger montada; al bajar se despieza y se vuelve a montar -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero__copy">
+        <p class="hero__eyebrow">Street food · Estación de Cártama</p>
+        <h1 class="hero__title" id="hero-title"><span>Si no chorrea,</span> <span>no es <em>Xorreo.</em></span></h1>
+        <p class="hero__sub">Burgers de pan negro, smash de añojo, pollo XFC y comida callejera de medio mundo.</p>
+        <div class="hero__actions">
+          <a class="btn btn--red" href="#carta">Ver la carta</a>
+          <a class="btn btn--ghost" data-call>Llamar</a>
+        </div>
+        <p class="hero__meta" data-hours-line></p>
+      </div>
+      <div class="hero__burger" role="img" aria-label="Burger de pan negro con smash de añojo, cheddar fundido, crujiente morado y salsa"></div>
+      <p class="hero__hint" aria-hidden="true">Baja y la desmontamos</p>
+    </section>
+
+    <!-- CARTA -->
+    <section class="menu" id="carta" aria-labelledby="carta-title">
+      <div class="menu__head">
+        <h2 class="title" id="carta-title">La carta</h2>
+        <p class="menu__lede">Todo lo que sale de la cocina, con precios. Los alérgenos van en cada plato; si tienes dudas, pregunta en sala.</p>
+      </div>
+      <nav class="menu__tabs" aria-label="Secciones de la carta" data-tabs></nav>
+      <div class="menu__groups" data-menu></div>
+      <section class="sauces" aria-labelledby="salsas-title">
+        <h3 class="group__name" id="salsas-title">Salsas extra <span data-sauce-price></span></h3>
+        <ul class="sauces__list" data-sauces></ul>
+      </section>
+      <details class="allergens">
+        <summary>Leyenda de alérgenos</summary>
+        <ul data-allergens></ul>
+      </details>
+    </section>
+
+    <!-- CÓMO PEDIR -->
+    <section class="order" id="pedir" aria-labelledby="pedir-title">
+      <h2 class="title order__title" id="pedir-title"><span>Cómo pedir</span></h2>
+      <div class="order__cards">
+        <article class="card"><span class="card__drip" aria-hidden="true"></span>
+          <p class="card__num">01</p>
+          <h3>Llama y recoge</h3>
+          <p>Encarga por teléfono y pásate a por ello. Sale caliente y chorreando.</p>
+          <a class="btn btn--red" data-call>Llamar al <span data-phone-text></span></a>
+        </article>
+        <article class="card"><span class="card__drip" aria-hidden="true"></span>
+          <p class="card__num">02</p>
+          <h3>Ven a cenar</h3>
+          <p data-hours-text></p>
+          <a class="btn btn--ghost" data-maps target="_blank" rel="noopener">Cómo llegar</a>
+        </article>
+        <article class="card"><span class="card__drip" aria-hidden="true"></span>
+          <p class="card__num">03</p>
+          <h3>Mira lo que sale hoy</h3>
+          <p>Especiales, tartas del día y lo que se cuece en cocina, en sus redes.</p>
+          <div class="card__social" data-social></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- EL LOCAL: aquí sí, el neón -->
+    <section class="local" id="local" aria-labelledby="local-title">
+      <figure class="local__photo">
+        <img src="img/fachada.jpg" alt="Fachada de Xorreo de noche, con el letrero de neón rojo y las ventanas iluminadas" loading="lazy" width="765" height="1020" />
+      </figure>
+      <div class="local__text">
+        <h2 class="title local__title" id="local-title">Encuéntranos</h2>
+        <dl class="local__info">
+          <div><dt>Dónde</dt><dd data-address></dd></div>
+          <div><dt>Teléfono</dt><dd><a data-phone></a></dd></div>
+          <div><dt>Cuándo</dt><dd><ul class="hours" data-hours></ul></dd></div>
+        </dl>
+        <div class="local__actions">
+          <a class="btn btn--red" data-maps target="_blank" rel="noopener">Cómo llegar</a>
+          <a class="btn btn--ghost" data-call>Llamar</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__logo" data-logo="sm" aria-hidden="true"></div>
+    <p>Xorreo Street Food · <span data-address-line></span></p>
+    <p class="footer__social" data-social></p>
+    <p class="footer__legal">
+      <button type="button" data-open="aviso">Aviso legal</button>
+      <button type="button" data-open="privacidad">Privacidad</button>
+      <button type="button" data-open="cookies">Cookies</button>
+    </p>
+  </footer>
+
+  <!-- Barra fija en móvil -->
+  <nav class="dock" aria-label="Acciones rápidas">
+    <a data-call>Llamar</a>
+    <a href="#carta">Carta</a>
+    <a data-maps target="_blank" rel="noopener">Cómo llegar</a>
+  </nav>
+
+  <!-- Textos legales: plantilla, a validar por el cliente o su asesor -->
+  <dialog class="legal" id="aviso" aria-labelledby="aviso-t">
+    <h2 id="aviso-t">Aviso legal</h2>
+    <p>En cumplimiento de la Ley 34/2002 (LSSI-CE), se informa de que este sitio web pertenece a <strong>[PENDIENTE CLIENTE: razón social]</strong>, con NIF <strong>[PENDIENTE CLIENTE]</strong> y domicilio en Av. de Andalucía, 89, 29580 Estación de Cártama (Málaga). Teléfono: 952 32 51 52.</p>
+    <p>Los contenidos de esta web (textos, fotografías y diseño) son propiedad de su titular o se usan con permiso. Queda prohibida su reproducción sin autorización. La carta y los precios pueden cambiar; los vigentes son los del local.</p>
+    <form method="dialog"><button class="btn btn--red btn--sm">Cerrar</button></form>
+  </dialog>
+  <dialog class="legal" id="privacidad" aria-labelledby="priv-t">
+    <h2 id="priv-t">Política de privacidad</h2>
+    <p>Esta web no tiene formularios ni recoge datos personales. Si nos llamas o nos escribes por redes, <strong>[PENDIENTE CLIENTE: razón social]</strong> usará tus datos solo para atender tu pedido o consulta, con base en tu solicitud (art. 6.1.b RGPD), y no los cederá a terceros salvo obligación legal.</p>
+    <p>Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad en el local o en <strong>[PENDIENTE CLIENTE: email]</strong>, y reclamar ante la Agencia Española de Protección de Datos (aepd.es).</p>
+    <form method="dialog"><button class="btn btn--red btn--sm">Cerrar</button></form>
+  </dialog>
+  <dialog class="legal" id="cookies" aria-labelledby="cookies-t">
+    <h2 id="cookies-t">Política de cookies</h2>
+    <p>Esta web no usa cookies propias ni de terceros, ni herramientas de analítica o publicidad. Por eso no te mostramos ningún aviso de consentimiento. Si en el futuro se añade analítica, se pedirá tu permiso antes de activarla.</p>
+    <form method="dialog"><button class="btn btn--red btn--sm">Cerrar</button></form>
+  </dialog>
+
+</body>
+</html>
