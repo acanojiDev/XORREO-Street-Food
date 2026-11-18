@@ -40,16 +40,24 @@ button { font: inherit; color: inherit; }
 :focus-visible { outline: 3px solid var(--queso); outline-offset: 3px; border-radius: 6px; }
 .skip { position: fixed; left: 1rem; top: -4rem; z-index: 300; padding: .7rem 1rem; background: var(--papel); color: var(--negro); border-radius: 10px; }
 .skip:focus { top: 1rem; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
-/* ---------- logo ---------- */
+/* ---------- logo: neón rojo ---------- */
 .logo { display: block; width: 100%; height: auto; overflow: visible; }
-.logo__tube { fill: var(--papel); }
-.logo--neon .logo__tube, .logo--neon .logo__glow { fill: var(--rojo); }
-.logo__glow { opacity: 0; }
-.logo--neon.is-on .logo__glow { animation: flicker 1.6s steps(1) 1 forwards; }
-@keyframes flicker {
-  0% { opacity: 0; } 8% { opacity: .55; } 12% { opacity: .08; }
-  18% { opacity: .62; } 22% { opacity: .16; } 30%, 100% { opacity: .5; }
+.logo__tube { fill: #7A0A12; }                 /* tubo apagado */
+.logo__light { opacity: 0; }
+.logo__halo { fill: var(--rojo); opacity: .5; }
+.logo__glow { fill: var(--rojo); opacity: .9; }
+.logo__lit { fill: var(--rojo); }                /* tubo encendido */
+.logo__core { fill: #FFC2C7; opacity: .35; }     /* el centro del tubo, más caliente */
+.logo--sm .logo__halo { opacity: .35; }
+/* encendido con parpadeo y luego, de vez en cuando, un zumbido leve de tubo */
+.logo.is-on .logo__light { opacity: 1; animation: neon-on 1.4s steps(1) 1, neon-hum 7s 1.4s ease-in-out infinite; }
+@keyframes neon-on {
+  0% { opacity: 0; } 10% { opacity: 1; } 14% { opacity: .1; } 22% { opacity: .9; } 26% { opacity: .2; } 34%, 100% { opacity: 1; }
+}
+@keyframes neon-hum {
+  0%, 100% { opacity: 1; } 46% { opacity: .92; } 48% { opacity: .55; } 49% { opacity: 1; } 51% { opacity: .7; } 53% { opacity: 1; }
 }
 
 /* ---------- botones ---------- */
@@ -89,7 +97,7 @@ button { font: inherit; color: inherit; }
 .hero__eyebrow { margin-bottom: 1.1rem; font-size: var(--step--1); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--queso-claro); }
 .hero__title { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(3rem, 1rem + 5vw, 6.4rem); line-height: .86; letter-spacing: -.01em; }
 .hero__title span { display: block; }
-.hero__title em { font-style: normal; color: var(--queso); }
+.hero__title em { font-style: normal; color: var(--rojo); }
 .hero__sub { margin-top: 1.2rem; max-width: 32ch; font-size: var(--step-1); line-height: 1.35; color: var(--gris); }
 .hero__actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.6rem; }
 .hero__meta { margin-top: 1.4rem; font-size: var(--step--1); color: var(--gris); }
@@ -208,8 +216,9 @@ button { font: inherit; color: inherit; }
 .local { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(2rem, 5vw, 5rem); align-items: center; max-width: var(--max); margin: 0 auto; padding: clamp(5rem, 9vw, 8rem) var(--gutter); }
 .local__photo { aspect-ratio: 4 / 5; overflow: hidden; border-radius: 18px; }
 .local__photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 16%; }
-.local__logo { width: min(320px, 70%); margin-bottom: 1.6rem; }
-.local__info { display: grid; gap: 1.1rem; margin-top: 2rem; }
+
+.local__title { margin-bottom: 2rem; }
+.local__info { display: grid; gap: 1.1rem; margin-top: 0; }
 .local__info > div { display: grid; grid-template-columns: 5.5rem 1fr; gap: .75rem; padding-bottom: 1.1rem; border-bottom: 1px solid var(--linea); }
 .local__info dt { font-weight: 600; font-size: .82rem; color: var(--gris); padding-top: .15rem; }
 .local__info a { text-decoration: none; font-weight: 600; }
@@ -220,7 +229,7 @@ button { font: inherit; color: inherit; }
 
 /* ---------- footer ---------- */
 .footer { display: grid; justify-items: center; gap: 1rem; padding: 3rem var(--gutter) 2.5rem; border-top: 1px solid var(--linea); text-align: center; color: var(--gris); font-size: .9rem; }
-.footer__logo { width: min(180px, 50vw); opacity: .9; }
+.footer__logo { width: min(200px, 54vw); margin-bottom: .6rem; }
 .footer__social { display: flex; gap: .6rem; }
 .footer__legal { display: flex; gap: 1.2rem; flex-wrap: wrap; justify-content: center; }
 .footer__legal button { padding: 0; border: 0; background: none; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; color: var(--gris); }

@@ -14,14 +14,32 @@ const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 const euro = (n) => `${Number.isInteger(n) ? n : n.toFixed(2).replace('.', ',')} €`;
 
-/* ---------- logo: plano en general, neón solo en el local ---------- */
-const logoSVG = (i, neon) => `
-  <svg class="logo${neon ? ' logo--neon' : ''}" viewBox="0 0 ${MARK_VIEW.w} ${MARK_VIEW.h}" aria-hidden="true" overflow="visible">
-    ${neon ? `<defs><filter id="logo-glow-${i}" x="-45%" y="-45%" width="190%" height="190%" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="3.6"/></filter></defs>
-    <path class="logo__glow" fill-rule="evenodd" filter="url(#logo-glow-${i})" d="${MARK_PATH}"/>` : ''}
+/* ---------- logo: neón de verdad, en su rojo ----------
+   Capas: halo ancho y suave + resplandor ceñido + tubo rojo + núcleo casi blanco (como un tubo encendido).
+   data-logo="sm" (barra y pie). */
+const logoSVG = (i, size) => {
+  const k = size === 'lg' ? 1 : 0.7;
+  return `
+  <svg class="logo logo--${size}" viewBox="0 0 ${MARK_VIEW.w} ${MARK_VIEW.h}" aria-hidden="true" overflow="visible">
+    <defs>
+      <filter id="lg-halo-${i}" x="-80%" y="-150%" width="260%" height="400%" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="${9 * k}"/></filter>
+      <filter id="lg-glow-${i}" x="-30%" y="-40%" width="160%" height="180%" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="${2.2 * k}"/></filter>
+      <filter id="lg-core-${i}" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="0.5"/></filter>
+    </defs>
     <path class="logo__tube" fill-rule="evenodd" d="${MARK_PATH}"/>
+    <g class="logo__light">
+      <path class="logo__halo" fill-rule="evenodd" filter="url(#lg-halo-${i})" d="${MARK_PATH}"/>
+      <path class="logo__glow" fill-rule="evenodd" filter="url(#lg-glow-${i})" d="${MARK_PATH}"/>
+      <path class="logo__lit" fill-rule="evenodd" d="${MARK_PATH}"/>
+      <path class="logo__core" fill-rule="evenodd" filter="url(#lg-core-${i})" d="${MARK_PATH}"/>
+    </g>
   </svg>`;
-$$('[data-logo]').forEach((el, i) => { el.innerHTML = logoSVG(i, el.dataset.logo === 'neon'); });
+};
+$$('[data-logo]').forEach((el, i) => { el.innerHTML = logoSVG(i, el.dataset.logo); });
+// se encienden al cargar (barra) o al llegar (pie)
+const neonOn = (el) => el?.classList.add('is-on');
+if (reduced) $$('.logo').forEach(neonOn);
+else setTimeout(() => neonOn($('.nav .logo')), 500);
 
 /* ---------- datos del local ---------- */
 const hoursText = info.hours.map(([d, h]) => `${d}: ${h}`).join(' · ');
@@ -223,14 +241,13 @@ if (reduced) {
   });
 }
 
-// el neón se enciende una vez, al llegar al local
-ScrollTrigger.create({
-  trigger: '.local',
-  start: 'top 70%',
+// el neón del pie se enciende al llegar
+['.footer'].forEach((sel) => ScrollTrigger.create({
+  trigger: sel,
+  start: 'top 80%',
   once: true,
-  onEnter: () => $('.local .logo--neon')?.classList.add('is-on'),
-});
-if (reduced) $('.local .logo--neon')?.classList.add('is-on');
+  onEnter: () => neonOn($(`${sel} .logo`)),
+}));
 
 window.addEventListener('resize', () => burger.refresh());
 window.addEventListener('load', () => ScrollTrigger.refresh());
